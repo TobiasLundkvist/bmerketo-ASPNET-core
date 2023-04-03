@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bmerketo_ASPNET_core_MVC", "bmerketo_ASPNET_core_MVC\bmerketo_ASPNET_core_MVC.csproj", "{AC30D79B-66C5-4BAE-A849-239E81AF26F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC30D79B-66C5-4BAE-A849-239E81AF26F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC30D79B-66C5-4BAE-A849-239E81AF26F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC30D79B-66C5-4BAE-A849-239E81AF26F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC30D79B-66C5-4BAE-A849-239E81AF26F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42D1E1F5-B105-4915-90E7-532C50DC262B}
+	EndGlobalSection
+EndGlobal
