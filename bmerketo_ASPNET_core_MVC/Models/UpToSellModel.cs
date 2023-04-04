@@ -1,4 +1,6 @@
-﻿namespace bmerketo_ASPNET_core_MVC.Models;
+﻿using bmerketo_ASPNET_core_MVC.ViewModels;
+
+namespace bmerketo_ASPNET_core_MVC.Models;
 
 public class UpToSellModel
 {
@@ -8,5 +10,8 @@ public class UpToSellModel
     public string? Text { get; set; } = null!;
     public string? LinkText { get; set; } = null!;
     public string? LinkUrl { get; set; } = null!;
+
+    public IEnumerable<ProductCardViewModel> UpToSellProduct1 { get; set; } = null!;
+    public IEnumerable<ProductCardViewModel> UpToSellProduct2 { get; set; } = null!;
 
 }

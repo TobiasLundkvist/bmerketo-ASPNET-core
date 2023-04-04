@@ -6,6 +6,6 @@ public class BestCollectionModel
 {
     public string? Title { get; set; }
     public IEnumerable<string> Categories { get; set; } = null!;
-    public IEnumerable<ProductCardViewModel> BestCollectionItems { get; set; } = null!;
+    public IEnumerable<ProductCardViewModel> ProductCardItems { get; set; } = null!;
     public bool LoadMore { get; set; } = false;
 }

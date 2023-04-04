@@ -147,6 +147,15 @@ html, body {
                 align-items: center
             }
 
+                .collection-item .body .info .price .old-price {
+                    font-style: normal;
+                    text-decoration: line-through;
+                    margin-right: 20px;
+                }
+                .collection-item .body .info .price .new-price {
+                    font-style: normal;
+                }
+
             .collection-item .body .info .add-cart {
                 grid-area: cart;
                 text-align: right;

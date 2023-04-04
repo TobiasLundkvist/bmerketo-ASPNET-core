@@ -1,45 +1,18 @@
-﻿<section class="commented-products">
+﻿@model CommentedProductsModel
+
+<section class="commented-products">
     <div class="container">
         <div class="collection-grid">
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/370x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Table lamp 1562 LTG modal</div>
-                    <div class="comment">Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno</div>
-                    <div class="info">
-                        <div class="posted">POST BY: ADMIN</div>
-                        <div class="comment-qty">COMMENTS 13</div>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/370x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Table lamp 1562 LTG modal</div>
-                    <div class="comment">Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno</div>
-                    <div class="info">
-                        <div class="posted">POST BY: ADMIN</div>
-                        <div class="comment-qty">COMMENTS 13</div>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
-            <!-- collection-item start -->
-            <a href="#" class="collection-item">
-                <img src="images/placeholders/370x295.svg" alt="">
-                <div class="body">
-                    <div class="title">Table lamp 1562 LTG modal</div>
-                    <div class="comment">Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno</div>
-                    <div class="info">
-                        <div class="posted">POST BY: ADMIN</div>
-                        <div class="comment-qty">COMMENTS 13</div>
-                    </div>
-                </div>
-            </a>
-            <!-- collection-item end -->
+
+            @if (Model.CommentedProducts != null)
+            {
+                @foreach (var product in Model.CommentedProducts)
+                {
+                    <partial name="/Views/Partials/_ProductCard.cshtml" model="product" />
+                }
+            }
+
+
         </div>
     </div>
 </section>

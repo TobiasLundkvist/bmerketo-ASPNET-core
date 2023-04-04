@@ -15,10 +15,10 @@
         }
 
 
-        @if (Model.BestCollectionItems != null)
+        @if (Model.ProductCardItems != null)
         {
             <div class="collection-grid">
-                @foreach (var product in Model.BestCollectionItems)
+                @foreach (var product in Model.ProductCardItems)
                 {
                     <partial name="/Views/Partials/_ProductCard.cshtml" model="product" />
                 }

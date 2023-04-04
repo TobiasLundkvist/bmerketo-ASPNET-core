@@ -4,10 +4,34 @@
     <img src="@Model.ImageUrl" alt="@Model.Title">
     <div class="body">
         <div class="title">@Model.Title</div>
+
+        @if(Model.Comment != null)
+        {
+            <div class="comment">@Model.Comment</div>
+        }
+
         <div class="info">
-            <div class="price">@Model.Price</div>
-            <i class="add-cart fa-regular fa-cart-plus"></i>
+            <div class="price">
+                @if (Model.OldPrice != null)
+                {
+                    <i class="old-price">@Model.OldPrice</i>
+                }
+                @if (Model.Price != null)
+                {
+                    <i class="new-price">@Model.Price</i>
+                }
+
+            </div>
+            @if (Model.PostedBy != null && Model.CommentQty != null)
+            {
+                <div class="posted">@Model.PostedBy</div>
+                <div class="comment-qty">@Model.CommentQty</div>
+            }
+
+            @if (Model.ShopNow == true)
+            {
+                <i class="add-cart fa-regular fa-cart-plus"></i>
+            }
         </div>
     </div>
 </a>
-
