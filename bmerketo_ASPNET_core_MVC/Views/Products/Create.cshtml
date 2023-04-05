@@ -1,0 +1,12 @@
+﻿@{
+    var BreadcrumbModel = new BreadcrumbModel()
+    {
+        Title = "CREATE PRODUCT",
+        SubTitleOne = "HOME",
+        SubTitleTwo = "CONTACT"
+    };
+}
+
+<partial name="/Views/Partials/_Breadcrumb.cshtml" model="@BreadcrumbModel" />
+<partial name="/Views/Partials/Forms/_ProductForm.cshtml" />
+

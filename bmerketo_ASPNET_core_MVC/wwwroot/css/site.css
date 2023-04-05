@@ -20,12 +20,10 @@ html, body {
 }
 
 .btn-toggle {
-    cursor: pointer;
     font-family: "Poppins",sans-serif;
     font-size: 1.8em;
     padding: 0 !important;
     background-color: rgba(0,0,0,0);
-    text-decoration: none;
     border: none !important
 }
 
@@ -35,12 +33,10 @@ html, body {
     }
 
 .btn-toggle-white {
-    cursor: pointer;
     font-family: "Poppins",sans-serif;
     font-size: 1.8em;
     padding: 0 !important;
     background-color: rgba(0,0,0,0);
-    text-decoration: none;
     border: none !important
 }
 
@@ -50,13 +46,11 @@ html, body {
     }
 
 .btn-outline-white {
-    cursor: pointer;
     font-family: "Poppins",sans-serif;
     padding: 10px 25px;
     border: 1px solid #636363;
     background-color: #fff;
     color: #636363;
-    text-decoration: none;
     transition: all .25s ease-in-out
 }
 
@@ -67,13 +61,11 @@ html, body {
     }
 
 .btn-outline-dark {
-    cursor: pointer;
     font-family: "Poppins",sans-serif;
     padding: 10px 25px;
     border: 0px solid #fff;
     background-color: rgba(0,0,0,0);
     color: #fff;
-    text-decoration: none;
     transition: all .25s ease-in-out
 }
 
@@ -84,13 +76,11 @@ html, body {
     }
 
 .btn-theme {
-    cursor: pointer;
     font-family: "Poppins",sans-serif;
     padding: 10px 35px;
     border: 1px solid #fa3150;
     background-color: #fa3150;
     color: #fff;
-    text-decoration: none;
     transition: all .25s ease-in-out
 }
 
@@ -150,10 +140,11 @@ html, body {
                 .collection-item .body .info .price .old-price {
                     font-style: normal;
                     text-decoration: line-through;
-                    margin-right: 20px;
+                    margin-right: 20px
                 }
+
                 .collection-item .body .info .price .new-price {
-                    font-style: normal;
+                    font-style: normal
                 }
 
             .collection-item .body .info .add-cart {
@@ -1117,3 +1108,134 @@ footer {
                 .commented-products .container .collection-grid .collection-item .body .info .posted {
                     margin-right: 20px
                 }
+
+.add-product .container {
+    display: flex;
+    justify-content: end
+}
+
+    .add-product .container .btn-create-product {
+        text-decoration: none;
+        margin: 30px 0px 30px 0px;
+        font-family: "Poppins",sans-serif;
+        padding: 10px 15px;
+        border: 1px solid #e1e1e1;
+        background-color: #fff;
+        color: #202020;
+        transition: all .25s ease-in-out
+    }
+
+        .add-product .container .btn-create-product:hover {
+            border: 1px solid #292929;
+            background-color: #292929;
+            color: #fff
+        }
+
+.all-products .container {
+    border: 1px solid #e1e1e1;
+    margin-bottom: 40px
+}
+
+    .all-products .container .all-product-title {
+        text-align: center;
+        font-family: "Poppins",sans-serif;
+        font-weight: 600;
+        font-size: 38px;
+        color: #292929;
+        padding: 50px 0 10px 0
+    }
+
+@media(min-width: 768px) {
+    .all-products .container .all-product-title {
+        font-size: 48px
+    }
+}
+
+.all-products .container .collection-grid {
+    margin-top: 40px 0 40px 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px
+}
+
+@media(min-width: 768px) {
+    .all-products .container .collection-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(min-width: 992px) {
+    .all-products .container .collection-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media(min-width: 1200px) {
+    .all-products .container .collection-grid {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+.create-product .container {
+    border: 1px solid #e1e1e1;
+    margin-bottom: 40px;
+    margin-top: 100px
+}
+
+    .create-product .container .create-product-title {
+        text-align: center;
+        font-family: "Poppins",sans-serif;
+        font-weight: 600;
+        font-size: 38px;
+        color: #292929;
+        padding: 50px 0 10px 0
+    }
+
+@media(min-width: 768px) {
+    .create-product .container .create-product-title {
+        font-size: 38px
+    }
+}
+
+.create-product .container .product-form {
+    margin-bottom: 40px;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "productimage producttitle" "productdescription productdescription" "price newprice"
+}
+
+    .create-product .container .product-form .product-image {
+        grid-area: productimage
+    }
+
+    .create-product .container .product-form .product-title {
+        grid-area: producttitle
+    }
+
+    .create-product .container .product-form .product-description {
+        grid-area: productdescription
+    }
+
+        .create-product .container .product-form .product-description .resize {
+            resize: none
+        }
+
+    .create-product .container .product-form .product-price {
+        grid-area: price
+    }
+
+    .create-product .container .product-form .product-new-price {
+        grid-area: newprice
+    }
+
+    .create-product .container .product-form .btn-theme {
+        width: 100%
+    }
+
+@media(min-width: 992px) {
+    .create-product .container .product-form .btn-theme {
+        width: 30%
+    }
+}
