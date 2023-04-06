@@ -1,14 +1,11 @@
 ﻿using bmerketo_ASPNET_core_MVC.Models;
+using bmerketo_ASPNET_core_MVC.Models.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace bmerketo_ASPNET_core_MVC.ViewModels;
 
 public class ProductsCreateFormViewModel
 {
-    //public BreadcrumbModel BreadcrumbModel { get; set; } = null!;
-
-
-
     [Required(ErrorMessage = "Product Title is required")]
     [Display(Name = "Product Name")]
     public string ProductName { get; set; } = null!;
@@ -30,4 +27,22 @@ public class ProductsCreateFormViewModel
     [Display(Name = "Price")]
     public string Price { get; set; } = null!;
 
+
+
+    [Display(Name = "Discounted Price")]
+    public string DiscountPrice { get; set; } = null!;
+
+
+
+    public static implicit operator ProductEntity(ProductsCreateFormViewModel productsCreateFormViewModel)
+    {
+        return new ProductEntity
+        {
+            ImageUrl = productsCreateFormViewModel.ImageUrl,
+            ProductName = productsCreateFormViewModel.ProductName,
+            Description = productsCreateFormViewModel.Description,
+            Price = productsCreateFormViewModel.Price,
+            DiscountPrice = productsCreateFormViewModel.DiscountPrice
+        };
+    }
 }

@@ -6,6 +6,8 @@
 
         <form novalidate method="post" class="product-form">
 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="product-image">
                 <label asp-for="ImageUrl">Product image*</label>
                 <input asp-for="ImageUrl" type="text">
@@ -29,10 +31,10 @@
                 <span asp-validation-for="Price" class="error"></span>
             </div>
 
-@*            <div class="product-new-price">
-                <label for="OldPrice">New Price</label>
-                <input id="OldPrice" type="text" class="" required>
-            </div>*@
+            <div class="product-new-price">
+                <label asp-for="DiscountPrice">Discounted Price</label>
+                <input asp-for="DiscountPrice" type="text">
+            </div>
 
 
             <button class="btn-theme">CREATE</button>

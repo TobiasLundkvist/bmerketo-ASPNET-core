@@ -2,9 +2,10 @@
 
 public class ProductCardViewModel
 {
-    public string Id { get; set; } = null!;
+    public Guid Id { get; set; }
     public string ImageUrl { get; set; } = null!;
     public string Title { get; set; } = null!;
+    public string? Description { get; set; }
     public string? Price { get; set; } = null!;
     public string? OldPrice { get; set; } = null!;
     public string? Comment { get; set; } = null!;

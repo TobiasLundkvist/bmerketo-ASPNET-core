@@ -1202,8 +1202,8 @@ footer {
     display: grid;
     gap: 50px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "productimage producttitle" "productdescription productdescription" "price newprice"
+    grid-template-rows: 1fr 1fr 1fr auto;
+    grid-template-areas: "productimage producttitle" "productdescription productdescription" "price newprice" "button button" 
 }
 
     .create-product .container .product-form .product-image {
@@ -1231,11 +1231,12 @@ footer {
     }
 
     .create-product .container .product-form .btn-theme {
-        width: 100%
+        width: 100%; 
+        grid-area: button;
     }
 
 @media(min-width: 992px) {
     .create-product .container .product-form .btn-theme {
-        width: 30%
+        width: 20%
     }
 }
