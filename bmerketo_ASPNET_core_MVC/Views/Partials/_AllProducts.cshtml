@@ -1,7 +1,4 @@
-﻿@using bmerketo_ASPNET_core_MVC.Services;
-@inject ProductService productService 
-
-@{
+﻿@{
     var products = await productService.GetAllAsync();
 
 }
@@ -22,8 +19,8 @@
                             <div class="title">@product.Title</div>
                             <div class="info">
                                 <div class="price">
-                                    <i class="old-price">@product.Price</i>
-                                    <i class="new-price">@product.OldPrice</i>
+                                    <i class="new-price">@product.Price</i>
+                                    <i class="old-price">@product.OldPrice</i>
                                 </div>
                                 <i class="add-cart fa-regular fa-cart-plus"></i>
                             </div>
