@@ -28,14 +28,14 @@ public class HomeController : Controller
                Categories = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Interior", "Laptops", "Mobile", "Beauty" },
                ProductCardItems = new List<ProductCardViewModel>
                {
-                   new ProductCardViewModel { Title = "Apple watch series", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Table Lamp", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "laptop thinkpad lenovo", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Table Lamp", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Gumshoes black fashion", Price = "$80.00", OldPrice = "$120.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Woman white dress", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Kettle water boiler", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" },
+                   new ProductCardViewModel { Title = "Apple watch series", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "laptop thinkpad lenovo", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+                   new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
                },
                LoadMore = true
             },
@@ -50,12 +50,12 @@ public class HomeController : Controller
                 LinkUrl = "",
                 UpToSellProduct1 = new List<ProductCardViewModel> 
                 {  
-                    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = "$30.00", OldPrice = "$50.00", ImageUrl = "images/placeholders/369x310.svg" },
+                    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" },
                 },
 
                 UpToSellProduct2 = new List<ProductCardViewModel>
                 {
-                    new ProductCardViewModel { Title = "TEST2 - scelerisque tempore", Price = "$30.00", OldPrice = "$50.00", ImageUrl = "images/placeholders/369x310.svg" }
+                    new ProductCardViewModel { Title = "TEST2 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" }
                 }
 
 
@@ -66,12 +66,12 @@ public class HomeController : Controller
                 Title = "Top selling products in this week",
                 TopSellingProducts = new List<ProductCardViewModel>
                 {
-                    new ProductCardViewModel { Title = "Apple watch series", Price = "$80.00", OldPrice = "$120.00", ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Gumshoes black fashion", Price = "$80.00", OldPrice = "$120.00", ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Woman white dress", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Kettle water boiler", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Pizza tomato sauce kebab", Price = "$30.00", ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Apple watch series", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
+                    new ProductCardViewModel { Title = "Pizza tomato sauce kebab", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
                 },
                 ArrowButtons = true
             },

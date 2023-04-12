@@ -15,9 +15,9 @@
             </div>
 
             <div class="product-title">
-                <label asp-for="ProductName">Product title*</label>
-                <input asp-for="ProductName" type="text" class="invalid">
-                <span asp-validation-for="ProductName" class="error"></span>
+                <label asp-for="ProductName"></label>
+                <input asp-for="ProductName" type="text">
+                <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
 
             <div class="product-description">
@@ -27,14 +27,14 @@
 
             <div class="product-price">
                 <label asp-for="Price">Price*</label>
-                <input asp-for="Price" type="text" class="invalid">
-                <span asp-validation-for="Price" class="error"></span>
+                <input asp-for="Price" type="text">
+                <span asp-validation-for="Price" class="text-danger"></span>
             </div>
 
-            <div class="product-new-price">
+        @*    <div class="product-new-price">
                 <label asp-for="DiscountPrice">Discounted Price</label>
                 <input asp-for="DiscountPrice" type="text">
-            </div>
+            </div>*@
 
 
             <button class="btn-theme">CREATE</button>

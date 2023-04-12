@@ -12,8 +12,8 @@ using bmerketo_ASPNET_core_MVC.Contexts;
 namespace bmerketo_ASPNET_core_MVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230406090531_InitDatabase")]
-    partial class InitDatabase
+    [Migration("20230412115215_UpdatedDatabase")]
+    partial class UpdatedDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,16 +35,12 @@ namespace bmerketo_ASPNET_core_MVC.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("DiscountPrice")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("money");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

@@ -19,21 +19,23 @@ public class ProductsCreateFormViewModel
 
 
     [Display(Name = "Product Description")]
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
 
 
     [Required(ErrorMessage = "Product Price is required")]
     [Display(Name = "Price")]
-    public string Price { get; set; } = null!;
+    public decimal Price { get; set; }
 
 
 
-    [Display(Name = "Discounted Price")]
-    public string DiscountPrice { get; set; } = null!;
+    //[Display(Name = "Discounted Price")]
+    //public string? DiscountPrice { get; set; }
 
 
 
+
+    //Jag vill att den ska kunna bli en ProductEntity och jag använder mig av info/data från ProductsCreateFormViewModel
     public static implicit operator ProductEntity(ProductsCreateFormViewModel productsCreateFormViewModel)
     {
         return new ProductEntity
@@ -42,7 +44,7 @@ public class ProductsCreateFormViewModel
             ProductName = productsCreateFormViewModel.ProductName,
             Description = productsCreateFormViewModel.Description,
             Price = productsCreateFormViewModel.Price,
-            DiscountPrice = productsCreateFormViewModel.DiscountPrice
+            //DiscountPrice = productsCreateFormViewModel.DiscountPrice
         };
     }
 }

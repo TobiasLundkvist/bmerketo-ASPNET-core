@@ -6,8 +6,8 @@ public class ProductCardViewModel
     public string ImageUrl { get; set; } = null!;
     public string Title { get; set; } = null!;
     public string? Description { get; set; }
-    public string? Price { get; set; } = null!;
-    public string? OldPrice { get; set; } = null!;
+    public decimal? Price { get; set; } = null!;
+    public decimal? OldPrice { get; set; } = null!;
     public string? Comment { get; set; } = null!;
     public string? PostedBy { get; set; } = null!;
     public string? CommentQty { get; set; } = null!;

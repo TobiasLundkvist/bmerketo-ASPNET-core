@@ -1,5 +1,6 @@
 ﻿using bmerketo_ASPNET_core_MVC.ViewModels;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bmerketo_ASPNET_core_MVC.Models.Entities
 {
@@ -19,10 +20,9 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
         public string? Description { get; set; }
 
         [Required]
-        public string Price { get; set; } = null!;
+        [Column(TypeName = "money")]
+        public decimal Price { get; set; }
 
-
-        public string? DiscountPrice { get; set; }
 
 
         public static implicit operator ProductCardViewModel (ProductEntity productEntity)
@@ -35,7 +35,6 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
                 Title = productEntity.ProductName,
                 Description = productEntity.Description,
                 Price = productEntity.Price,
-                OldPrice = productEntity.DiscountPrice,
 
             };
         }

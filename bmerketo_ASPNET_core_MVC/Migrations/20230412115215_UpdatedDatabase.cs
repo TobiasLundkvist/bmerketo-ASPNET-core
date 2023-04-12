@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace bmerketo_ASPNET_core_MVC.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDatabase : Migration
+    public partial class UpdatedDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,8 +19,7 @@ namespace bmerketo_ASPNET_core_MVC.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    Price = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscountPrice = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Price = table.Column<decimal>(type: "money", nullable: false)
                 },
                 constraints: table =>
                 {

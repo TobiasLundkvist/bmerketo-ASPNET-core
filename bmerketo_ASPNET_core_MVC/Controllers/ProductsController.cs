@@ -51,7 +51,7 @@ public class ProductsController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(ProductsCreateFormViewModel productsCreateFormViewModel)
     {
-        if (!ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             if (await _productService.CreateAsync(productsCreateFormViewModel))
                 return RedirectToAction("Index", "Products");
@@ -59,7 +59,7 @@ public class ProductsController : Controller
             ModelState.AddModelError("", "Something went wrong");
         }
 
-        return View();
+        return View(productsCreateFormViewModel);
     }
 
 
