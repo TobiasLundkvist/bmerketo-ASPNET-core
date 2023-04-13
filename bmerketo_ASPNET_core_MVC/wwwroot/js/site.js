@@ -17,6 +17,3 @@
     })
 } catch { }
 
-
-const footer = document.querySelector('footer')
-

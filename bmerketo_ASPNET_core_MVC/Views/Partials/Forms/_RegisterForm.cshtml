@@ -1,0 +1,80 @@
+﻿@model UserRegisterViewModel
+
+<section class="register">
+    <div class="container">
+        <div class="register-box">
+            <h5 class="register-title">
+                Please Register Your New Account
+                <span class="half-underline"></span>
+            </h5>
+
+            <form method="post" class="register-form" novalidate>
+
+                <div asp-validation-summary="ModelOnly" class="error"></div>
+
+                <div class="register-firstname">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName">
+                    <span asp-validation-for="FirstName" class="error"></span>
+                </div>
+
+                <div class="register-lastname">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName">
+                    <span asp-validation-for="LastName" class="error"></span>
+                </div>
+
+                <div class="register-streetname">
+                    <label asp-for="StreetName"></label>
+                    <input asp-for="StreetName">
+                    <span asp-validation-for="StreetName" class="error"></span>
+                </div>
+
+                <div class="register-postalcode">
+                    <label asp-for="PostalCode"></label>
+                    <input asp-for ="PostalCode" >
+                    <span asp-validation-for="PostalCode" class="error"></span>
+                </div>
+
+                <div class="register-city">
+                    <label asp-for="City"></label>
+                    <input asp-for="City">
+                    <span asp-validation-for="City"  class="error"></span>
+                </div>
+
+                <div class="register-mobile">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber">
+                    <span asp-validation-for="PhoneNumber" class="error"></span>
+                </div>
+
+                <div class="register-email">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email">
+                    <span asp-validation-for="Email" class="error"></span>
+                </div>
+
+                <div class="register-password">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password">
+                    <span asp-validation-for="Password" class="error"></span>
+                </div>
+
+                <div class="register-confirmpassword">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword">
+                    <span asp-validation-for="ConfirmPassword" class="error"></span>
+                </div>
+
+                <div class="terms form-checkbox-group">
+                    <label class="custom-checkbox">
+                        I have read and accepts the terms and agreements
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <button class="btn-theme" type="submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+</section>
