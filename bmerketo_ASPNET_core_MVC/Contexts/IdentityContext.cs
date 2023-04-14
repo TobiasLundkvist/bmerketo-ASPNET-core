@@ -6,6 +6,8 @@ namespace bmerketo_ASPNET_core_MVC.Contexts;
 
 public class IdentityContext : IdentityDbContext
 {
+
+
     public IdentityContext(DbContextOptions options) : base(options)
     {
     }

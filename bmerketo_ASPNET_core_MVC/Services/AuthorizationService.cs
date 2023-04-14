@@ -2,6 +2,7 @@
 using bmerketo_ASPNET_core_MVC.Models.Entities;
 using bmerketo_ASPNET_core_MVC.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace bmerketo_ASPNET_core_MVC.Services;
@@ -10,14 +11,17 @@ public class AuthorizationService
 {
     private readonly UserManager<IdentityUser> _userManager;
     private readonly SignInManager<IdentityUser> _signInManager;
-
+    private readonly RoleManager<IdentityRole> _roleManager;
     private readonly IdentityContext _identityContext;
+    private readonly SeedService _seedService;
 
-    public AuthorizationService(UserManager<IdentityUser> userManager, IdentityContext identityContext, SignInManager<IdentityUser> signInManager)
+    public AuthorizationService(UserManager<IdentityUser> userManager, IdentityContext identityContext, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, SeedService seedService)
     {
         _userManager = userManager;
         _identityContext = identityContext;
         _signInManager = signInManager;
+        _roleManager = roleManager;
+        _seedService = seedService;
     }
 
     // Create User
@@ -25,8 +29,16 @@ public class AuthorizationService
     {
         try
         {
+            await _seedService.SeedRoles();
+            var roleName = "user";
+
+            if (!await _userManager.Users.AnyAsync())
+                roleName = "admin";
+
             IdentityUser identityUser = model;
             await _userManager.CreateAsync(identityUser, model.Password);
+
+            await _userManager.AddToRoleAsync(identityUser, roleName);
 
             UserProfileEntity profile = model;
             profile.UserId = identityUser.Id;

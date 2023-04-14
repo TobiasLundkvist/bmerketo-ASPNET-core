@@ -8,14 +8,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Connection Strings
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityDatabase")));
 
+//Services
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<AuthorizationService>();
+builder.Services.AddScoped<SeedService>();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(x =>{
-
+//Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
+{
     x.SignIn.RequireConfirmedAccount = false;
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = false;
