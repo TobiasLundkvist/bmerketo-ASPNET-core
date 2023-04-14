@@ -1,4 +1,5 @@
 using bmerketo_ASPNET_core_MVC.Contexts;
+using bmerketo_ASPNET_core_MVC.Factories;
 using bmerketo_ASPNET_core_MVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Confi
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<AuthorizationService>();
 builder.Services.AddScoped<SeedService>();
+builder.Services.AddScoped<UserService>();
 
 //Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
@@ -24,7 +26,9 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = false;
 
-}).AddEntityFrameworkStores<IdentityContext>();
+})
+    .AddEntityFrameworkStores<IdentityContext>()
+    .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>();
 
 
 

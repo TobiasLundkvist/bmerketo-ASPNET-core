@@ -9,6 +9,10 @@ html, body {
     color: #636363
 }
 
+a {
+    text-decoration: none;
+}
+
 .open-menu {
     width: 100vw !important;
     opacity: .99;
