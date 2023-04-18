@@ -17,7 +17,7 @@ public class ProductsController : Controller
     }
 
 
-
+    //All Products listed
     public IActionResult Index()
     {
         ViewData["Title"] = "Products";
@@ -31,15 +31,12 @@ public class ProductsController : Controller
                 SubTitleTwo = "CONTACT"
             }
         };
-
-
         return View(viewModel);
     }
 
 
 
-
-
+    //Create Products
     public IActionResult Create()
     {
         ViewData["Title"] = "Create Product";
@@ -63,6 +60,22 @@ public class ProductsController : Controller
     }
 
 
+    public IActionResult DetailedProduct()
+    {
+        ViewData["Title"] = "Product";
+        return View();
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<ProductCardViewModel>> DetailedProduct(Guid Id)
+    {
+        ViewData["Title"] = "Product";
+        var product = await _productService.GetAsync(Id);
+        if (product != null)
+            return View(product);
+        else
+            return View();
+    }
 
 
 

@@ -44,4 +44,15 @@ public class ProductService
         }
         return products;
     }
+
+    public async Task<ProductCardViewModel> GetAsync(Guid id)
+    {
+        var product = await _context.Products.FirstOrDefaultAsync(x => x.ProductNumber == id);
+        if (product != null)
+        {
+            return product;
+        }
+        else
+            return null!;
+    }
 }

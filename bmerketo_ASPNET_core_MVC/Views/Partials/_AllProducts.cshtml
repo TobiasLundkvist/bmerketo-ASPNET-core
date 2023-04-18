@@ -13,7 +13,7 @@
             {
                 foreach (var product in products)
                 {
-                    <a asp-controller="products" asp-action="details" asp-route-id="@product.Id" class="collection-item">
+                    <a asp-controller="products" asp-action="DetailedProduct" asp-route-id="@product.Id" class="collection-item">
                         <img src=@product.ImageUrl alt="@product.Title">
                         <div class="body">
                             <div class="title">@product.Title</div>

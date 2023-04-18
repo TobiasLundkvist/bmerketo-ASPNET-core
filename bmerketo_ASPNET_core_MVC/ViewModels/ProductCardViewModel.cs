@@ -11,5 +11,5 @@ public class ProductCardViewModel
     public string? Comment { get; set; } = null!;
     public string? PostedBy { get; set; } = null!;
     public string? CommentQty { get; set; } = null!;
-    public bool ShopNow { get; set; } = true;
+    public bool? ShopNow { get; set; } = true;
 }
