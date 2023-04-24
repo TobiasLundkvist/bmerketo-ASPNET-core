@@ -28,10 +28,13 @@ public class RegisterController : Controller
     {
         if (ModelState.IsValid)
         {
+            if (await _authorizationService.Exists(x => x.Email == viewModel.Email))
+                ModelState.AddModelError("", "User with the same Email already exists");
+
             if (await _authorizationService.RegisterAsync(viewModel))
                 return RedirectToAction("Index", "Home");
 
-            ModelState.AddModelError("", "User with the same Email already exists");
+
 
         }
 

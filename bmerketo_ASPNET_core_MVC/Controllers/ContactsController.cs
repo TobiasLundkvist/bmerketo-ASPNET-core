@@ -10,18 +10,19 @@ public class ContactsController : Controller
     {
         ViewData["Title"] = "Contact Us";
 
-        var contactViewModel = new ContactsIndexViewModel
+        return View();
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Index(ContactFormViewModel viewModel)
+    {
+        if (ModelState.IsValid)
         {
-            BreadcrumbModel = new BreadcrumbModel()
-            {
-                Title = "CONTACT",
-                SubTitleOne = "HOME",
-                SubTitleTwo = "CONTACT",
-            }
-        };
+            ModelState.AddModelError("", "Something went wrong");
+        }
 
 
-
-        return View(contactViewModel);
+        return View(viewModel);
     }
 }

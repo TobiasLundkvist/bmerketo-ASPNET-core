@@ -17,3 +17,16 @@
     })
 } catch { }
 
+
+try {
+    const footer = document.querySelector('footer')
+
+    if (document.body.scrollHeight >= window.innerHeight) {
+        footer.classList.remove('position-fixed')
+        footer.classList.add('position-static')
+    } else {
+        footer.classList.remove('position-static')
+        footer.classList.add('position-fixed')
+    }
+}
+catch { }

@@ -1,5 +1,12 @@
-﻿@model ContactsIndexViewModel
+﻿@{
+    var BreadcrumbModel = new BreadcrumbModel()
+    {
+        Title = "CONTACT",
+        SubTitleOne = "HOME",
+        SubTitleTwo = "CONTACT",
+    };
+}
 
-<partial name="/Views/Partials/_Breadcrumb.cshtml" model="@Model.BreadcrumbModel" />
+<partial name="/Views/Partials/_Breadcrumb.cshtml" model="@BreadcrumbModel" />
 <partial name="/Views/Partials/Forms/_ContactForm.cshtml" />
 <partial name="/Views/Partials/_GoogleMaps.cshtml" />

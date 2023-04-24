@@ -3,6 +3,8 @@ using bmerketo_ASPNET_core_MVC.Models.Entities;
 using bmerketo_ASPNET_core_MVC.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using System.Linq.Expressions;
 using System.Security.Claims;
 
 namespace bmerketo_ASPNET_core_MVC.Services;
@@ -51,7 +53,14 @@ public class AuthorizationService
         catch { return false; }  
     }
 
+    // Check if email already exists
+    public async Task<bool> Exists(Expression<Func<IdentityUser, bool>> expression)
+    {
+        return await _userManager.Users.AnyAsync(expression);
+    }
 
+
+    //Login
     public async Task<bool> LoginAsync(UserLoginViewModel model)
     {
         try

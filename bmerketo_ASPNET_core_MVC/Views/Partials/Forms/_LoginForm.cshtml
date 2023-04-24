@@ -9,6 +9,9 @@
             </h5>
 
             <form method="post" class="login-form">
+
+                <div asp-validation-summary="ModelOnly" class="error"></div>
+
                 <div class="login-email">
                     <label asp-for="Email"></label>
                     <a class="account-link" asp-controller="Register" asp-action="Index">Don't have an Account yet?</a>
