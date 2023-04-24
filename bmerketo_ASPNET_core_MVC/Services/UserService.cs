@@ -1,5 +1,6 @@
 ﻿using bmerketo_ASPNET_core_MVC.Contexts;
 using bmerketo_ASPNET_core_MVC.Models.Entities;
+using bmerketo_ASPNET_core_MVC.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace bmerketo_ASPNET_core_MVC.Services;
@@ -17,5 +18,19 @@ public class UserService
     {
         var userProfileEntity = await _identityContext.UserProfiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == userId);
         return userProfileEntity!;
+    }
+
+    public async Task<IEnumerable<UserCardViewModel>> GetAllUserProfileAsync()
+    {
+        var profiles = new List<UserCardViewModel>();
+        var users = await _identityContext.UserProfiles.ToListAsync();
+
+        foreach (var user in users)
+        {
+            UserCardViewModel userCardViewModel = user;
+            profiles.Add(userCardViewModel);
+        }
+
+        return profiles;
     }
 }

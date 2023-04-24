@@ -9,21 +9,6 @@ html, body {
     color: #636363
 }
 
-a {
-    text-decoration: none;
-}
-
-.position-static {
-    position: static;
-}
-
-.position-fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 .open-menu {
     width: 100vw !important;
     opacity: .99;
@@ -37,6 +22,21 @@ a {
 .error {
     color: #fa3150;
     font-size: .88rem
+}
+
+.position-static {
+    position: static
+}
+
+.position-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+a {
+    text-decoration: none
 }
 
 .btn-toggle {
@@ -140,6 +140,28 @@ a {
     background-color: #fff;
     color: #636363
 }
+
+.detailed-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+    .detailed-buttons .detailed-link {
+        text-align: center;
+        text-decoration: none;
+        color: #636363;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        width: 100%;
+        padding: 10px 0px;
+        transition: all .25s ease-in-out
+    }
+
+        .detailed-buttons .detailed-link:hover {
+            background-color: #fa3150;
+            color: #fff
+        }
 
 .collection-item {
     background-color: #fff;
@@ -1558,28 +1580,6 @@ footer {
     border-bottom: 1px solid #e1e1e1
 }
 
-    .detailed-product-info .container .detailed-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center
-    }
-
-        .detailed-product-info .container .detailed-buttons .detailed-link {
-            text-align: center;
-            text-decoration: none;
-            color: #636363;
-            background-color: #fff;
-            border: 1px solid #e1e1e1;
-            width: 100%;
-            padding: 10px 0px;
-            transition: all .25s ease-in-out
-        }
-
-            .detailed-product-info .container .detailed-buttons .detailed-link:hover {
-                background-color: #fa3150;
-                color: #fff
-            }
-
     .detailed-product-info .container .detailed-title {
         padding: 40px 0 0 0;
         font-family: "Poppins",sans-serif;
@@ -1634,3 +1634,64 @@ footer {
         grid-template-columns: repeat(4, 1fr)
     }
 }
+
+.admin-users .container .title {
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 50px 0 10px 0
+}
+
+.admin-users .container .user-card-grid {
+    padding: 20px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px
+}
+
+    .admin-users .container .user-card-grid .user-card {
+        border: 1px solid #e1e1e1;
+        font-family: "Poppins",sans-serif;
+        font-size: 18px;
+        color: #292929;
+        padding: 15px;
+        transition: all .2s
+    }
+
+        .admin-users .container .user-card-grid .user-card:hover {
+            background-color: #e1e1e1;
+            border: 1px solid #aeaeae
+        }
+
+        .admin-users .container .user-card-grid .user-card .subtitle-name {
+            padding: 0 0 2px 0;
+            font-weight: 600;
+            display: block
+        }
+
+        .admin-users .container .user-card-grid .user-card .firstname {
+            display: inline-block
+        }
+
+        .admin-users .container .user-card-grid .user-card .lastname {
+            display: inline-block
+        }
+
+        .admin-users .container .user-card-grid .user-card .subtitle-address {
+            padding: 3px 0 2px 0;
+            font-weight: 600;
+            display: block
+        }
+
+        .admin-users .container .user-card-grid .user-card .postal-code {
+            display: inline-block
+        }
+
+        .admin-users .container .user-card-grid .user-card .city {
+            display: inline-block
+        }
+
+        .admin-users .container .user-card-grid .user-card .role {
+            display: block;
+            margin-top: 15px
+        }

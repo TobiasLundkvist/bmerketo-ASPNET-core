@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using bmerketo_ASPNET_core_MVC.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,4 +17,19 @@ public class UserProfileEntity
 
 
     public IdentityUser User { get; set; } = null!;
+
+
+
+    public static implicit operator UserCardViewModel(UserProfileEntity userProfileEntity)
+    {
+        return new UserCardViewModel
+        {
+            UserId = userProfileEntity.UserId,
+            FirstName = userProfileEntity.FirstName,
+            LastName = userProfileEntity.LastName,
+            StreetName = userProfileEntity.StreetName,
+            PostalCode = userProfileEntity.PostalCode,
+            City = userProfileEntity.City
+        };
+    }
 }

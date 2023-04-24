@@ -1,1 +1,15 @@
-﻿@{ ViewData["Title"] = "Admin"; }
+﻿@{
+    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+
+    var BreadcrumbModel = new BreadcrumbModel()
+    {
+        Title = "ADMINISTRATOR",
+        SubTitleOne = "USERS",
+        SubTitleTwo = "PRODUCTS",
+    };
+
+}
+
+<partial name="/Views/Partials/_Breadcrumb.cshtml" model="@BreadcrumbModel" />
+<partial name="/Views/Partials/_UserCard.cshtml" />
+

@@ -66,6 +66,8 @@ public class ProductsController : Controller
         return View();
     }
 
+
+    // Show one product
     [HttpGet]
     public async Task<ActionResult<ProductCardViewModel>> DetailedProduct(Guid Id)
     {
