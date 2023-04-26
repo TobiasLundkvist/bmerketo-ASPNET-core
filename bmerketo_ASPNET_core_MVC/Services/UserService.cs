@@ -1,6 +1,8 @@
 ﻿using bmerketo_ASPNET_core_MVC.Contexts;
 using bmerketo_ASPNET_core_MVC.Models.Entities;
 using bmerketo_ASPNET_core_MVC.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace bmerketo_ASPNET_core_MVC.Services;
@@ -8,10 +10,14 @@ namespace bmerketo_ASPNET_core_MVC.Services;
 public class UserService
 {
     private readonly IdentityContext _identityContext;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
-    public UserService(IdentityContext identityContext)
+    public UserService(IdentityContext identityContext, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
     {
         _identityContext = identityContext;
+        _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     public async Task<UserProfileEntity> GetUserProfileAsync(string userId)
@@ -26,11 +32,11 @@ public class UserService
         var users = await _identityContext.UserProfiles
             .Include(x => x.User)
             .ToListAsync();
-        var roles = await _identityContext.Roles.ToListAsync();
 
         foreach (var user in users)
         {
             UserCardViewModel userCardViewModel = user;
+            userCardViewModel.Roles = await _userManager.GetRolesAsync(user.User);
             profiles.Add(userCardViewModel);
         }
 

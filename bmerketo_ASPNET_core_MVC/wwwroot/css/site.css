@@ -1693,5 +1693,11 @@ footer {
 
         .admin-users .container .user-card-grid .user-card .role {
             display: block;
-            margin-top: 15px
+            margin: 15px 0 5px 0;
+            text-decoration: none;
+            padding: 0;
+        }
+
+        .admin-users .container .user-card-grid .user-card .role li {
+            display: block;
         }

@@ -10,5 +10,5 @@ public class UserCardViewModel
     public string? PostalCode { get; set; }
     public string? City { get; set; }
     public string? PhoneNumber { get; set; }
-    public string Role { get; set; } = null!;
+    public IList<string> Roles { get; set; } = null!;
 }

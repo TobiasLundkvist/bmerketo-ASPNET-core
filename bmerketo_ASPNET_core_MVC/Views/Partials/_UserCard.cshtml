@@ -18,6 +18,8 @@
             {
                 foreach (var user in users)
                 {
+
+                    
                     <div class="user-card">
                         <div class="subtitle-name">PROFILE:</div>
                         <div class="firstname">NAME: @user.FirstName</div>
@@ -28,11 +30,24 @@
                         <div class="street-name">@user.StreetName</div>
                         <div class="postal-code">@user.PostalCode</div>
                         <div class="city">@user.City</div>
-                        <select class="role">
-                            <option></option>
-                            <option>ADMIN</option>
-                            <option>USER</option>
-                        </select>
+                        <ul class="role">
+                            @{
+                                foreach(var role in user.Roles)
+                                {
+                                    <li>SYSTEM ROLE: @role</li>
+                                }
+                            }
+                        </ul>
+
+                        @{
+                            if(!user.Roles.Contains("admin"))
+                            {
+                                <button method="post" class="btn-outline-white">Make Admin</button>
+                            }
+
+                        }
+
+
                     </div>
                 }
             }
