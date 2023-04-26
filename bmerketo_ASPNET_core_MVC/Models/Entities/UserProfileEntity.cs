@@ -29,7 +29,10 @@ public class UserProfileEntity
             LastName = userProfileEntity.LastName,
             StreetName = userProfileEntity.StreetName,
             PostalCode = userProfileEntity.PostalCode,
-            City = userProfileEntity.City
+            City = userProfileEntity.City,
+            UserName = userProfileEntity.User.UserName,
+            PhoneNumber = userProfileEntity.User.PhoneNumber
+            
         };
     }
 }

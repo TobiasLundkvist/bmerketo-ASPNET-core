@@ -19,9 +19,11 @@
                 foreach (var user in users)
                 {
                     <div class="user-card">
-                        <div class="subtitle-name">NAME:</div>
-                        <div class="firstname">@user.FirstName</div>
+                        <div class="subtitle-name">PROFILE:</div>
+                        <div class="firstname">NAME: @user.FirstName</div>
                         <div class="lastname">@user.LastName</div>
+                        <div>E-MAIL: @user.UserName</div>
+                        <div>TEL: @user.PhoneNumber</div>
                         <div class="subtitle-address">ADDRESS</div>
                         <div class="street-name">@user.StreetName</div>
                         <div class="postal-code">@user.PostalCode</div>

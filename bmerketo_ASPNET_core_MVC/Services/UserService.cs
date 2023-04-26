@@ -23,7 +23,10 @@ public class UserService
     public async Task<IEnumerable<UserCardViewModel>> GetAllUserProfileAsync()
     {
         var profiles = new List<UserCardViewModel>();
-        var users = await _identityContext.UserProfiles.ToListAsync();
+        var users = await _identityContext.UserProfiles
+            .Include(x => x.User)
+            .ToListAsync();
+        var roles = await _identityContext.Roles.ToListAsync();
 
         foreach (var user in users)
         {
