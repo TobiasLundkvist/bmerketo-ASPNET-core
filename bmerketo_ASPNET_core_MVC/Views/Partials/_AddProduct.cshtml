@@ -1,5 +1,10 @@
-﻿<section class="add-product">
-    <div class="container">
-        <a class="btn-create-product" asp-controller="Products" asp-action="Create">CREATE NEW PRODUCT</a>
-    </div>
-</section>
+﻿
+
+    @if (signInManager.IsSignedIn(User) && User.IsInRole("admin")){
+
+        <section class="add-product">
+            <div class="container">
+                <a class="btn-create-product" asp-controller="Products" asp-action="Create">CREATE NEW PRODUCT</a>
+            </div>
+        </section>
+    }

@@ -3,7 +3,9 @@ using bmerketo_ASPNET_core_MVC.Models;
 using bmerketo_ASPNET_core_MVC.Models.Entities;
 using bmerketo_ASPNET_core_MVC.Services;
 using bmerketo_ASPNET_core_MVC.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace bmerketo_ASPNET_core_MVC.Controllers;
 
@@ -37,6 +39,7 @@ public class ProductsController : Controller
 
 
     //Create Products
+    [Authorize(Roles = "admin")]
     public IActionResult Create()
     {
         ViewData["Title"] = "Create Product";
@@ -45,6 +48,7 @@ public class ProductsController : Controller
         return View();
     }
 
+    [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<IActionResult> Create(ProductsCreateFormViewModel productsCreateFormViewModel)
     {
