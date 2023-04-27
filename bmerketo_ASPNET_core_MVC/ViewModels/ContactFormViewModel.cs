@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using bmerketo_ASPNET_core_MVC.Models.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace bmerketo_ASPNET_core_MVC.ViewModels;
 
@@ -29,4 +30,17 @@ public class ContactFormViewModel
     
     
     public bool RememberMe { get; set; }
+
+    public static implicit operator ContactFormEntity(ContactFormViewModel model)
+    {
+        return new ContactFormEntity
+        {
+            Name = model.Name,
+            Email = model.Email,
+            PhoneNumber = model.PhoneNumber,
+            CompanyName = model.CompanyName,
+            Message = model.Message
+        };
+    }
+
 }

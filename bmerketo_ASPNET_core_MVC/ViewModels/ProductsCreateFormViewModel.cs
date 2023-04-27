@@ -29,10 +29,6 @@ public class ProductsCreateFormViewModel
 
 
 
-    //[Display(Name = "Discounted Price")]
-    //public string? DiscountPrice { get; set; }
-
-
 
 
     //Jag vill att den ska kunna bli en ProductEntity och jag använder mig av info/data från ProductsCreateFormViewModel
@@ -43,8 +39,7 @@ public class ProductsCreateFormViewModel
             ImageUrl = productsCreateFormViewModel.ImageUrl,
             ProductName = productsCreateFormViewModel.ProductName,
             Description = productsCreateFormViewModel.Description,
-            Price = productsCreateFormViewModel.Price,
-            //DiscountPrice = productsCreateFormViewModel.DiscountPrice
+            Price = productsCreateFormViewModel.Price
         };
     }
 }
