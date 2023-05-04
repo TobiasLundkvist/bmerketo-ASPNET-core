@@ -12,10 +12,12 @@ namespace bmerketo_ASPNET_core_MVC.Controllers;
 public class ProductsController : Controller
 {
     private readonly ProductService _productService;
+    private readonly TagService _tagService;
 
-    public ProductsController(ProductService productService)
+    public ProductsController(ProductService productService, TagService tagService)
     {
         _productService = productService;
+        _tagService = tagService;
     }
 
 
@@ -38,30 +40,42 @@ public class ProductsController : Controller
 
 
 
+
+
+
     //Create Products
     [Authorize(Roles = "admin")]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
         ViewData["Title"] = "Create Product";
-        
+
+        ViewBag.Tags = await _tagService.GetTagsAsync();
 
         return View();
     }
 
     [Authorize(Roles = "admin")]
     [HttpPost]
-    public async Task<IActionResult> Create(ProductsCreateFormViewModel productsCreateFormViewModel)
+    public async Task<IActionResult> Create(ProductsCreateFormViewModel productsCreateFormViewModel, string[] tags)
     {
         if (ModelState.IsValid)
         {
             if (await _productService.CreateAsync(productsCreateFormViewModel))
+            {
+                await _tagService.AddProductTagsAsync(productsCreateFormViewModel, tags);
                 return RedirectToAction("Index", "Products");
+            }
 
             ModelState.AddModelError("", "Something went wrong");
         }
 
+        ViewBag.Tags = await _tagService.GetTagsAsync(tags);
         return View(productsCreateFormViewModel);
     }
+
+
+
+
 
 
     public IActionResult DetailedProduct()
@@ -73,7 +87,7 @@ public class ProductsController : Controller
 
     // Show one product
     [HttpGet]
-    public async Task<ActionResult<ProductCardViewModel>> DetailedProduct(Guid Id)
+    public async Task<ActionResult<ProductCardViewModel>> DetailedProduct(string Id)
     {
         ViewData["Title"] = "Product";
         var product = await _productService.GetAsync(Id);

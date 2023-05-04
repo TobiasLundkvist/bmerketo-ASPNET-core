@@ -8,7 +8,7 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
     {
         [Key]
         [Required]
-        public Guid ProductNumber { get; set; }
+        public string ProductNumber { get; set; } = null!;
 
         [Required]
         public string ImageUrl { get; set; } = null!;
@@ -22,6 +22,14 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
         [Required]
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
+
+        public ICollection<ProductTagEntity> ProductTags { get; set; } = new HashSet<ProductTagEntity>();
+
+        
+        
+        //public int CategoryId { get; set; }
+
+        //public ProductCategoryEntity? Category { get; set; }
 
 
 

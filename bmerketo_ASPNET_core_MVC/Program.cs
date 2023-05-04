@@ -1,5 +1,6 @@
 using bmerketo_ASPNET_core_MVC.Contexts;
 using bmerketo_ASPNET_core_MVC.Factories;
+using bmerketo_ASPNET_core_MVC.Repositories;
 using bmerketo_ASPNET_core_MVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,11 @@ builder.Services.AddScoped<AuthorizationService>();
 builder.Services.AddScoped<SeedService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ContactMessageService>();
+builder.Services.AddScoped<TagService>();
+
+// Repositories
+builder.Services.AddScoped<TagRepository>();
+builder.Services.AddScoped<ProductTagRepository>();
 
 //Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>

@@ -1,5 +1,6 @@
 ﻿@model ProductsCreateFormViewModel
 
+
 <section class="create-product">
     <div class="container">
         <h1 class="create-product-title">CREATE NEW PRODUCT</h1>
@@ -9,9 +10,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="product-image">
-                <label asp-for="ImageUrl">Product image*</label>
-                <input asp-for="ImageUrl" type="text">
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                <label asp-for="ProductNumber">Product Number*</label>
+                <input asp-for="ProductNumber" type="text">
+                <span asp-validation-for="ProductNumber" class="text-danger"></span>
             </div>
 
             <div class="product-title">
@@ -31,10 +32,21 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
 
-        @*    <div class="product-new-price">
-                <label asp-for="DiscountPrice">Discounted Price</label>
-                <input asp-for="DiscountPrice" type="text">
-            </div>*@
+            <div class="product-new-price">
+                <label asp-for="ImageUrl">Product image*</label>
+                <input asp-for="ImageUrl" type="text">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-evenly">
+                @foreach(SelectListItem tag in ViewBag.Tags)
+                {
+                    <div>
+                        <input type="checkbox" name="Tags" id="tag-@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" class="form-check-input" />
+                        <label for="tag-@tag.Text-@tag.Value" class="form-check-label">@tag.Text</label>
+                    </div>
+                }
+            </div>
 
 
             <button class="btn-theme">CREATE</button>
