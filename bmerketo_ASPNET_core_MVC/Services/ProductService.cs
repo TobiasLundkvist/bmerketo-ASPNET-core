@@ -59,6 +59,27 @@ public class ProductService
             return null!;
     }
 
+    public async Task<IEnumerable<ProductCardViewModel>> GetAllByTagsAsync(int tagId)
+    {
+        var products = new List<ProductCardViewModel>();
+        var items = await _context.Products
+            .Include(x => x.ProductTags)
+            .ToListAsync();
+
+        var tag = _context.ProductTags.Include(x => x.Tag).ThenInclude(x => x.Id).ToListAsync();
+            
+            //FirstOrDefaultAsync(x => x.TagId == tagId);
+
+        foreach (var item in items)
+        {
+            ProductCardViewModel productCardViewModel = item;
+            productCardViewModel.TagId = tag.Id;
+            products.Add(productCardViewModel);
+        }
+        return products;
+    }
+
+
     //public async Task<IEnumerable<ProductCardViewModel>> GetProductsByTagsAsync()
     //{
     //    var item = new List<ProductCardViewModel>();
@@ -66,12 +87,12 @@ public class ProductService
     //        .Include(x => x.ProductTags)
     //        .ThenInclude(z => z.TagId)
     //        .ToListAsync();
-        
+
     //    foreach(var product in products)
     //    {
     //        ProductCardViewModel productCardViewModel = product;
     //        productCardViewModel.TagId = await _productTagRepo.GetAsync(x => x.TagId == product.)
-        
+
     //    }
     //}
 }

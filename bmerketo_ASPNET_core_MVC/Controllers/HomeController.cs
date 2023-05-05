@@ -7,7 +7,14 @@ namespace bmerketo_ASPNET_core_MVC.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    private readonly ProductService _productService;
+
+    public HomeController(ProductService productService)
+    {
+        _productService = productService;
+    }
+
+    public async Task<IActionResult> Index()
     {
 
         ViewData["Title"] = "Home";
@@ -25,19 +32,19 @@ public class HomeController : Controller
 
             BestCollectionModel = new BestCollectionModel()
             {
-               Title = "Best Collection",
-               Categories = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Interior", "Laptops", "Mobile", "Beauty" },
-               ProductCardItems = new List<ProductCardViewModel>
-               {
-                   new ProductCardViewModel { Title = "Apple watch series", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "laptop thinkpad lenovo", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-                   new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-               },
+                Title = "Best Collection",
+                Categories = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Interior", "Laptops", "Mobile", "Beauty" },
+                ProductCardItems = await _productService.GetAllByTagsAsync(3),
+               //{
+               //    new ProductCardViewModel { Title = "Apple watch series", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "laptop thinkpad lenovo", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
+               //    new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
+               //},
                LoadMore = true
             },
 
