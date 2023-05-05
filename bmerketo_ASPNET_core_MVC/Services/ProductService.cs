@@ -1,5 +1,6 @@
 ﻿using bmerketo_ASPNET_core_MVC.Contexts;
 using bmerketo_ASPNET_core_MVC.Models.Entities;
+using bmerketo_ASPNET_core_MVC.Repositories;
 using bmerketo_ASPNET_core_MVC.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,10 +9,12 @@ namespace bmerketo_ASPNET_core_MVC.Services;
 public class ProductService
 {
     private readonly DataContext _context;
+    private readonly ProductTagRepository _productTagRepo;
 
-    public ProductService(DataContext context)
+    public ProductService(DataContext context, ProductTagRepository productTagRepo)
     {
         _context = context;
+        _productTagRepo = productTagRepo;
     }
 
 
@@ -55,4 +58,20 @@ public class ProductService
         else
             return null!;
     }
+
+    //public async Task<IEnumerable<ProductCardViewModel>> GetProductsByTagsAsync()
+    //{
+    //    var item = new List<ProductCardViewModel>();
+    //    var products = await _context.Products
+    //        .Include(x => x.ProductTags)
+    //        .ThenInclude(z => z.TagId)
+    //        .ToListAsync();
+        
+    //    foreach(var product in products)
+    //    {
+    //        ProductCardViewModel productCardViewModel = product;
+    //        productCardViewModel.TagId = await _productTagRepo.GetAsync(x => x.TagId == product.)
+        
+    //    }
+    //}
 }
