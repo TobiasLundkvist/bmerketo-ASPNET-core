@@ -15,8 +15,13 @@ public class ProductCardViewModel
     public string? CommentQty { get; set; } = null!;
     public bool? ShopNow { get; set; } = true;
 
-    public int TagId { get; set; }
-    public string TagName { get; set; } = null!;
+    public List<int>? TagIds { get; set; } = new List<int>();
+    public List<string>? TagNames { get; set; } = new List<string>();
+
+
+
+    //public int TagId { get; set; }
+    //public string TagName { get; set; } = null!;
 
 
 

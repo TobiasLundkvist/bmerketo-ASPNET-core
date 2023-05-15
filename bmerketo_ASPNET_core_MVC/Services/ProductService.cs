@@ -67,32 +67,39 @@ public class ProductService
             .ToListAsync();
 
         var tag = _context.ProductTags.Include(x => x.Tag).ThenInclude(x => x.Id).ToListAsync();
-            
-            //FirstOrDefaultAsync(x => x.TagId == tagId);
 
         foreach (var item in items)
         {
             ProductCardViewModel productCardViewModel = item;
-            productCardViewModel.TagId = tag.Id;
-            products.Add(productCardViewModel);
+            if(productCardViewModel != null)
+            {
+                if(productCardViewModel.TagIds != null && productCardViewModel.TagIds.Contains(tagId))
+                {
+                    products.Add(productCardViewModel);
+                }
+            }
         }
         return products;
     }
 
 
-    //public async Task<IEnumerable<ProductCardViewModel>> GetProductsByTagsAsync()
-    //{
-    //    var item = new List<ProductCardViewModel>();
-    //    var products = await _context.Products
-    //        .Include(x => x.ProductTags)
-    //        .ThenInclude(z => z.TagId)
-    //        .ToListAsync();
+    public async Task<ProductCardViewModel> GetLastByTagAsync(int tagId)
+    {
+        var products = new ProductCardViewModel();
+        var items = await _context.Products
+            .Include(x => x.ProductTags)
+            .ToListAsync();
 
-    //    foreach(var product in products)
-    //    {
-    //        ProductCardViewModel productCardViewModel = product;
-    //        productCardViewModel.TagId = await _productTagRepo.GetAsync(x => x.TagId == product.)
+        var tag = _context.ProductTags.Include(x => x.Tag).ThenInclude(x => x.Id).ToListAsync();
 
-    //    }
-    //}
+        ProductCardViewModel productCardViewModel = new ProductCardViewModel();
+        if (productCardViewModel != null)
+        {
+            if (productCardViewModel.TagIds != null && productCardViewModel.TagIds.Contains(tagId))
+            {
+                return products;
+            }
+        }
+        return products;
+    }
 }

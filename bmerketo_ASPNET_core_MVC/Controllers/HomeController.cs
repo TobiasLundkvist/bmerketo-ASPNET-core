@@ -34,18 +34,8 @@ public class HomeController : Controller
             {
                 Title = "Best Collection",
                 Categories = new List<string> { "All", "Bag", "Dress", "Decoration", "Essentials", "Interior", "Laptops", "Mobile", "Beauty" },
-                ProductCardItems = await _productService.GetAllByTagsAsync(3),
-               //{
-               //    new ProductCardViewModel { Title = "Apple watch series", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "laptop thinkpad lenovo", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Table Lamp", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" }, 
-               //    new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-               //},
-               LoadMore = true
+                ProductCardItems = await _productService.GetAllByTagsAsync(2),
+                LoadMore = true
             },
 
             UpToSellModel = new UpToSellModel()
@@ -56,10 +46,12 @@ public class HomeController : Controller
                 Text = "Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki",
                 LinkText = "Discover More",
                 LinkUrl = "",
-                UpToSellProduct1 = new List<ProductCardViewModel> 
-                {  
-                    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" },
-                },
+                UpToSellProduct1 = await _productService.GetAllByTagsAsync(1),
+
+                //UpToSellProduct1 = new List<ProductCardViewModel> 
+                //{  
+                //    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" },
+                //},
 
                 UpToSellProduct2 = new List<ProductCardViewModel>
                 {
@@ -72,15 +64,7 @@ public class HomeController : Controller
             TopSellingModel = new TopSellingModel()
             {
                 Title = "Top selling products in this week",
-                TopSellingProducts = new List<ProductCardViewModel>
-                {
-                    new ProductCardViewModel { Title = "Apple watch series", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Gumshoes black fashion", Price = 80, OldPrice = 120, ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Woman white dress", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Kettle water boiler", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Congee cooking rice cooker", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-                    new ProductCardViewModel { Title = "Pizza tomato sauce kebab", Price = 30, ImageUrl = "images/placeholders/270x295.svg" },
-                },
+                TopSellingProducts = await _productService.GetAllByTagsAsync(3),
                 ArrowButtons = true
             },
 
@@ -88,9 +72,9 @@ public class HomeController : Controller
             {
                 CommentedProducts = new List<ProductCardViewModel>
                 {
-                    new ProductCardViewModel { Title = "Table lamp 1562 LTG modal", ImageUrl = "images/placeholders/370x295.svg", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false },
-                    new ProductCardViewModel { Title = "Table lamp 1562 LTG modal", ImageUrl = "images/placeholders/370x295.svg", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false  },
-                    new ProductCardViewModel { Title = "Table lamp 1562 LTG modal", ImageUrl = "images/placeholders/370x295.svg", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false  },
+                    new ProductCardViewModel { Title = "Table lamp 1562 LTG modal", ImageUrl = "https://s7template.com/tf/bmarketo/assets/img/blog/1.png", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false },
+                    new ProductCardViewModel { Title = "Exclusive Chair 1562 LTG", ImageUrl = "https://s7template.com/tf/bmarketo/assets/img/blog/2.png", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false  },
+                    new ProductCardViewModel { Title = "Vase glass 1562 LTG modal", ImageUrl = "https://s7template.com/tf/bmarketo/assets/img/blog/3.png", Comment = "Best dress for everyone ed totam velit risus viverra nobis donec recusandae perspiciatis incididuno", PostedBy = "POST BY: ADMIN", CommentQty = "COMMENTS 13", ShopNow = false  },
                 }
             }
         

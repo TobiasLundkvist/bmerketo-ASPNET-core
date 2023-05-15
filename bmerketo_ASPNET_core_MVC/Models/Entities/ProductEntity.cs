@@ -35,7 +35,7 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
 
         public static implicit operator ProductCardViewModel (ProductEntity productEntity)
         {
-            return new ProductCardViewModel
+            ProductCardViewModel viewModel = new ProductCardViewModel
             {
 
                 Id = productEntity.ProductNumber,
@@ -45,6 +45,16 @@ namespace bmerketo_ASPNET_core_MVC.Models.Entities
                 Price = productEntity.Price,
 
             };
+
+            if(productEntity.ProductTags != null)
+            {
+                foreach(var tag in productEntity.ProductTags)
+                {
+                    viewModel.TagIds?.Add(tag.TagId);
+                }
+            }
+
+            return viewModel;
         }
 
     }
