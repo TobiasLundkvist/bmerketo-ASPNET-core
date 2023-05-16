@@ -1693,11 +1693,56 @@ footer {
 
         .admin-users .container .user-card-grid .user-card .role {
             display: block;
-            margin: 15px 0 5px 0;
-            text-decoration: none;
-            padding: 0;
+            margin-top: 15px
         }
 
-        .admin-users .container .user-card-grid .user-card .role li {
-            display: block;
+.user-profile {
+    padding: 20px 0 20px 0
+}
+
+    .user-profile .container .profile-card {
+        border: 1px solid #e1e1e1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center
+    }
+
+        .user-profile .container .profile-card .profile-img {
+            padding: 50px
         }
+
+            .user-profile .container .profile-card .profile-img i {
+                font-size: 15rem
+            }
+
+        .user-profile .container .profile-card .profile-info {
+            font-size: 28px
+        }
+
+            .user-profile .container .profile-card .profile-info .subtitle-name {
+                padding: 0 0 2px 0;
+                font-weight: 600;
+                display: block
+            }
+
+            .user-profile .container .profile-card .profile-info .firstname {
+                display: inline-block
+            }
+
+            .user-profile .container .profile-card .profile-info .lastname {
+                display: inline-block
+            }
+
+            .user-profile .container .profile-card .profile-info .subtitle-address {
+                padding: 3px 0 2px 0;
+                font-weight: 600;
+                display: block
+            }
+
+            .user-profile .container .profile-card .profile-info .postal-code {
+                display: inline-block
+            }
+
+            .user-profile .container .profile-card .profile-info .city {
+                display: inline-block
+            }

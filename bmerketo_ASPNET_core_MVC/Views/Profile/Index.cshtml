@@ -1,5 +1,16 @@
 ﻿@{
     ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+
+    var BreadcrumbModel = new BreadcrumbModel()
+    {
+        Title = "YOUR PROFILE",
+        SubTitleOne = "USERS",
+        SubTitleTwo = "PRODUCTS",
+    };
+
 }
 
-<h1 class="text-success">Success!!</h1>
+
+<partial name="/Views/Partials/_Breadcrumb.cshtml" model="@BreadcrumbModel" />
+<partial name="/Views/Partials/_UserProfile.cshtml" />
+

@@ -20,7 +20,7 @@ public class UserService
         _roleManager = roleManager;
     }
 
-    public async Task<UserProfileEntity> GetUserProfileAsync(string userId)
+    public async Task<UserCardViewModel> GetUserProfileAsync(string userId)
     {
         var userProfileEntity = await _identityContext.UserProfiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == userId);
         return userProfileEntity!;

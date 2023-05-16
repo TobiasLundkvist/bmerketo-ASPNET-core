@@ -1,0 +1,24 @@
+﻿@model UserCardViewModel
+
+
+
+<section class="user-profile">
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-img"><i class="fa-solid fa-user"></i></div>
+            <div class="profile-info">
+                <div class="firstname">@Model.FirstName</div>
+                <div class="lastname">@Model.LastName</div>
+                <div>@Model.UserName</div>
+                <div>@Model.PhoneNumber</div>
+                <div class="subtitle-address">ADDRESS</div>
+                <div class="street-name">@Model.StreetName</div>
+                <div class="postal-code">@Model.PostalCode</div>
+                <div class="city">@Model.City</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
