@@ -12,8 +12,9 @@
 
 <section class="admin-users">
     <div class="container">
-        <h1 class="title">ALL USERS</h1>
-        <div class="user-card-grid">
+        <h1 class="title mb-5">ALL USERS</h1>
+        <a class="btn-outline-white" asp-controller="Register" asp-action="Index">CREATE NEW USER</a>
+        <div class="user-card-grid mt-4">
             @if (users != null)
             {
                 foreach (var user in users)
@@ -42,7 +43,9 @@
                         @{
                             if(!user.Roles.Contains("admin"))
                             {
-                                <button method="post" class="btn-outline-white">Make Admin</button>
+                                <form method="post">
+                                    <button asp-action="Index" asp-controller="Admin" asp-route-itemid="@user.UserId" type="submit" class="btn-outline-white">Make Admin</button>
+                                </form>
                             }
 
                         }

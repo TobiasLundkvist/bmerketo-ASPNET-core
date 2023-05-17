@@ -42,4 +42,17 @@ public class UserService
 
         return profiles;
     }
+
+    public async Task<IdentityUser> UpdateRole(string userId)
+    {
+        var newRole = "admin";
+        
+
+        var user = await _userManager.FindByIdAsync(userId);
+        var currentRole = await _userManager.GetRolesAsync(user!);
+        await _userManager.RemoveFromRolesAsync(user!, currentRole);
+        await _userManager.AddToRoleAsync(user!, newRole);
+
+        return user!;
+    }
 }
