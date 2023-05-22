@@ -16,7 +16,7 @@ public class ProductCardViewModel
     public bool? ShopNow { get; set; } = true;
 
     public List<int>? TagIds { get; set; } = new List<int>();
-    public List<string>? TagNames { get; set; } = new List<string>();
+    public List<string> TagNames { get; set; } = new List<string>();
 
 
 

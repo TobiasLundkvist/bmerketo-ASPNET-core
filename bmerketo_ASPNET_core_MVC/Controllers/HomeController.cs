@@ -46,16 +46,15 @@ public class HomeController : Controller
                 Text = "Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki",
                 LinkText = "Discover More",
                 LinkUrl = "",
-                UpToSellProduct1 = await _productService.GetAllByTagsAsync(1),
 
-                //UpToSellProduct1 = new List<ProductCardViewModel> 
-                //{  
-                //    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" },
-                //},
+                UpToSellProduct1 = new List<ProductCardViewModel>
+                {
+                    new ProductCardViewModel { Title = "TEST1 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "https://s7template.com/tf/bmarketo/assets/img/discount/1.png" },
+                },
 
                 UpToSellProduct2 = new List<ProductCardViewModel>
                 {
-                    new ProductCardViewModel { Title = "TEST2 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "images/placeholders/369x310.svg" }
+                    new ProductCardViewModel { Title = "TEST2 - scelerisque tempore", Price = 30, OldPrice = 50, ImageUrl = "https://s7template.com/tf/bmarketo/assets/img/discount/2.png" }
                 }
 
 

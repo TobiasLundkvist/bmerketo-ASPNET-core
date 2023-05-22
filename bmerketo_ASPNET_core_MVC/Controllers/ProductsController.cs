@@ -94,7 +94,7 @@ public class ProductsController : Controller
         if (product != null)
             return View(product);
         else
-            return View();
+            return null!;
     }
 
 

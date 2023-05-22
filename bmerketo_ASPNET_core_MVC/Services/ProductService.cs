@@ -50,9 +50,15 @@ public class ProductService
 
     public async Task<ProductCardViewModel> GetAsync(string id)
     {
-        var product = await _context.Products.FirstOrDefaultAsync(x => x.ProductNumber == id);
-        if (product != null)
+        var _product = await _context.Products.Include(x => x.ProductTags).ThenInclude(x => x.Tag).FirstOrDefaultAsync(x => x.ProductNumber == id);
+        if (_product != null)
         {
+            ProductCardViewModel product = _product;
+            foreach(var tag in _product.ProductTags)
+            {
+                product.TagNames?.Add(tag.Tag.TagName);
+
+            }
             return product;
         }
         else
@@ -77,27 +83,6 @@ public class ProductService
                 {
                     products.Add(productCardViewModel);
                 }
-            }
-        }
-        return products;
-    }
-
-
-    public async Task<ProductCardViewModel> GetLastByTagAsync(int tagId)
-    {
-        var products = new ProductCardViewModel();
-        var items = await _context.Products
-            .Include(x => x.ProductTags)
-            .ToListAsync();
-
-        var tag = _context.ProductTags.Include(x => x.Tag).ThenInclude(x => x.Id).ToListAsync();
-
-        ProductCardViewModel productCardViewModel = new ProductCardViewModel();
-        if (productCardViewModel != null)
-        {
-            if (productCardViewModel.TagIds != null && productCardViewModel.TagIds.Contains(tagId))
-            {
-                return products;
             }
         }
         return products;

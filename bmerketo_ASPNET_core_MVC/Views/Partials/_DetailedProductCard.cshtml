@@ -1,10 +1,6 @@
 ﻿@model ProductCardViewModel
 
 
-@{
-    var tags = await tagService.GetTagsAsync();
-}
-
 
 <section class="productdetail-card">
     <div class="container">
@@ -43,15 +39,11 @@
                 <div class="product-category">
                     <div class="title">Category:</div>
 
-                    @if(tags != null)
+                    @foreach(var tag in Model.TagNames.ToList())
                     {
-                        foreach(var tag in tags)
-                        {
-                            <a class="category-link" href="#">@tag.Text,</a>
-                        }
+                        <span>@tag,</span>
                     }
-                
-                
+               
                 </div>
             </div>
         </div>
