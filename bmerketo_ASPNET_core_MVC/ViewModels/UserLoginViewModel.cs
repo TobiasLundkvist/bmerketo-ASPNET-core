@@ -7,7 +7,6 @@ public class UserLoginViewModel
     [Required(ErrorMessage = "Email Address is required")]
     [Display(Name = "Email Address")]
     [DataType(DataType.EmailAddress)]
-    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid E-mailaddress, eg. name@domain.com")]
     public string Email { get; set; } = null!;
 
 

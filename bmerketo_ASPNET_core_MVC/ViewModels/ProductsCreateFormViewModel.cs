@@ -33,9 +33,6 @@ public class ProductsCreateFormViewModel
 
 
 
-
-
-    //Jag vill att den ska kunna bli en ProductEntity och jag använder mig av info/data från ProductsCreateFormViewModel
     public static implicit operator ProductEntity(ProductsCreateFormViewModel productsCreateFormViewModel)
     {
         return new ProductEntity

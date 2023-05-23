@@ -14,13 +14,13 @@
 
                 <div class="register-firstname">
                     <label asp-for="FirstName"></label>
-                    <input asp-for="FirstName">
+                    <input asp-for="FirstName" onkeyup="validateFirstName(event)">
                     <span asp-validation-for="FirstName" class="error"></span>
                 </div>
 
                 <div class="register-lastname">
                     <label asp-for="LastName"></label>
-                    <input asp-for="LastName">
+                    <input asp-for="LastName" onkeyup="validateLastName(event)">
                     <span asp-validation-for="LastName" class="error"></span>
                 </div>
 
@@ -50,13 +50,13 @@
 
                 <div class="register-email">
                     <label asp-for="Email"></label>
-                    <input asp-for="Email">
+                    <input asp-for="Email" onkeyup="validateEmail(event)">
                     <span asp-validation-for="Email" class="error"></span>
                 </div>
 
                 <div class="register-password">
                     <label asp-for="Password"></label>
-                    <input asp-for="Password">
+                    <input asp-for="Password" onkeyup="validateRegisterPassword(event)">
                     <span asp-validation-for="Password" class="error"></span>
                 </div>
 

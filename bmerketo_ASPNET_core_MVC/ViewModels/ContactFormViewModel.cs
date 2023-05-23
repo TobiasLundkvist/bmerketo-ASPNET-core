@@ -7,7 +7,6 @@ public class ContactFormViewModel
 {
     [Required(ErrorMessage = "You need to enter your name")]
     [Display(Name = "Your Name")]
-    [RegularExpression(@"^[A-Z][a-z]*\s[A-Z][a-z]*$", ErrorMessage = "Please enter your Firstname and Lastname with capital letters")]
     public string Name { get; set; } = null!;
 
 
@@ -15,7 +14,6 @@ public class ContactFormViewModel
     [Required(ErrorMessage = "You need to enter an E-mail")]
     [Display(Name = "E-mail")]
     [DataType(DataType.EmailAddress)]
-    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid E-mailaddress")]
     public string Email { get; set; } = null!;
 
 
@@ -39,7 +37,6 @@ public class ContactFormViewModel
     public bool RememberMe { get; set; }
 
 
-    // Gör om till en ContactFormEntity baserat på ContactFormViewModel
     public static implicit operator ContactFormEntity(ContactFormViewModel model)
     {
         return new ContactFormEntity

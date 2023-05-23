@@ -8,20 +8,17 @@ public class UserRegisterViewModel
 {
     [Required(ErrorMessage = "First Name is required")]
     [Display(Name = "First Name")]
-    [RegularExpression(@"^[A-Z][a-z]*$", ErrorMessage = "Start with captial letter eg. Firstname")]
     public string FirstName { get; set; } = null!;
 
     
     [Required(ErrorMessage = "Last Name is required")]
     [Display(Name = "Last Name")]
-    [RegularExpression(@"^[A-Z][a-z]*$", ErrorMessage = "Start with captial letter eg. Lastname")]
     public string LastName { get; set; } = null!;
 
     
     [Required(ErrorMessage = "Email Address is required")]
     [Display(Name = "Email Address")]
     [DataType(DataType.EmailAddress)]
-    [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid E-mailaddress, eg. name@domain.com")]
     public string Email { get; set; } = null!;
 
 

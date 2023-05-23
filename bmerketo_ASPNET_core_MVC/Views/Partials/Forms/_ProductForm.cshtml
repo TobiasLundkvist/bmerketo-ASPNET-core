@@ -11,13 +11,13 @@
 
             <div class="product-image">
                 <label asp-for="ProductNumber">Product Number*</label>
-                <input asp-for="ProductNumber" type="text">
+                <input asp-for="ProductNumber" type="text" onkeyup="validateProductNumber(event)">
                 <span asp-validation-for="ProductNumber" class="text-danger"></span>
             </div>
 
             <div class="product-title">
-                <label asp-for="ProductName"></label>
-                <input asp-for="ProductName" type="text">
+                <label asp-for="ProductName">Product Name*</label>
+                <input asp-for="ProductName" type="text" onkeyup="validateProductName(event)">
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
 
@@ -28,13 +28,13 @@
 
             <div class="product-price">
                 <label asp-for="Price">Price*</label>
-                <input asp-for="Price" type="text">
+                <input asp-for="Price" type="text" onkeyup="validateProductPrice(event)">
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
 
             <div class="product-new-price">
                 <label asp-for="ImageUrl">Product image*</label>
-                <input asp-for="ImageUrl" type="text">
+                <input asp-for="ImageUrl" type="text" onkeyup="validateProductImage(event)">
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
 

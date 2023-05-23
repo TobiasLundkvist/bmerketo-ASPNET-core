@@ -18,12 +18,12 @@
 
             <div class="name form-group">
                 <label asp-for="Name"></label>
-                <input asp-for="Name">
+                <input asp-for="Name" onkeyup="validateName(event)">
                 <span asp-validation-for="Name" class="error"></span>
             </div>
             <div class="email form-group">
                 <label asp-for="Email"></label>
-                <input asp-for="Email">
+                <input asp-for="Email" onkeyup="validateEmail(event)">
                 <span asp-validation-for="Email" class="error"></span>
             </div>
             <div class="phoneNumber form-group">
@@ -36,7 +36,7 @@
             </div>
             <div class="message form-group">
                 <label asp-for="Message"></label>
-                <textarea asp-for="Message"></textarea>
+                <textarea asp-for="Message" onkeyup="validateMessage(event)"></textarea>
                 <span asp-validation-for="Message" class="error"></span>
             </div>
             <div class="terms form-checkbox-group">
